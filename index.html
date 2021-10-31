@@ -46,7 +46,7 @@ src=https://www.pogo.com/static/media/src/assets/categories/casino/spotlight__35
 &lt;/center&gt;</tw-passagedata><tw-passagedata pid="2" name="play room" tags="" position="300,200" size="100,100">Okay, the rules are simple. 
 
 * It costs $10 to play once on any machine in any room. 
-* You get 1 Million to start with, so you can play 100,000 times in room 1. As you earn more, you can play more and earn more in the next room. 
+* You get 1 Million to start with, so you can play 1,000 time in room 1. As you earn more, you can play more and earn more in the next room. 
 * You can only play on one machine after you make a choice. (text-colour:lime)[(maybe could let students choose to play on all machine? Late development point)]
 (set: $x to 1000000)
 Current Balance: $ (print: $x/1000000) million
@@ -124,24 +124,37 @@ One last rule, you can only bet on black or red. Never on green.
 
 (text-colour:#91a7ff)[After played the game using all your money, your current balance is (print: $x/1000000) million]</tw-passagedata><tw-passagedata pid="7" name=" game 1" tags="" position="625,50" size="100,100">Congratuations! 
 
-(set: $e to $x /3 )
+(set: $e to (floor: $x /3 * 100)/100 )
 You won an extra of $ (print: $e) after using all your money to play. 
 
 (set: $x to $x + $e )
-
-Current balance: $ (print: $x/1000000) million
+Current balance: $ (print: (floor: $x/1000000 *100)/100) million
 
 You are getting rich!
+
+(text-colour:#d0bfff)[
+Behind the scene calculations:
+* Your average profit is (2/6)(-10) + (4/6)(10) = $3.33, which would be similar to the average profit in &quot;try it out&quot; room if you play many times.
+* This number is also called the &quot;expected profit&quot; for a single game.
+* As you played 0.1 million times, your average profit would be very close (if not exact) to this number. So you total winning is: $3.33 * 1,000,000/10 = $333,333
+]
 
 Now let&#39;s go to the [[next room]]
 
 (text-colour:lime)[To do: 
 * 1 data format. 2 decimal places
-* colored text]</tw-passagedata><tw-passagedata pid="8" name=" game 2" tags="" position="625,400" size="100,100">Double-click this passage to edit it.(set: $x to 100000)
+* colored text]</tw-passagedata><tw-passagedata pid="8" name=" game 2" tags="" position="625,400" size="100,100">Double-click this passage to edit it.(set: $x to 1100000)
 
-Your current balance is $ (print: $x/1000000) Million
+Your current balance is $ (print: $x/11000000) Million
 
  
+(text-colour:#d0bfff)[
+Behind scene calculation:
+* Your average profit is (0.9)(-10) + (0.1)(100) = $1, which would be similar to the average profit in try it out room if you play enough times.
+* This number is also called the &#39;&#39;&quot;expected profit&quot; &#39;&#39;for a single game.
+* As you played 0.1 million times, your average profit would be quite close to this number. So you total winning is: $1* 1,000,000/10 = $100,000
+]
+
 You can go to the [[next room]] or go back to [[play room]] and choose again. </tw-passagedata><tw-passagedata pid="9" name="try it out &gt;- try game 1" tags="try" position="775,50" size="100,100">=|=
 &lt;style&gt; img {
     max-height: 60%;
@@ -156,10 +169,8 @@ src=https://image1.masterfile.com/getImage/NjE0LTA2MzM2MDI2ZW4uMDAwMDAwMDA=ANj2K
 * If it&#39;s at least 3, you win $20. Net profit = $10
 * If it&#39;s less than 3, you get nothing. Net profit = - $10
 =|=
-
-
-
 (set: $r to 0)
+(set: $c1 to 0)
 |roll&gt;[##Roll it!]
 (click-replace:?roll)[(display: &quot;dice1&quot;)]
 
@@ -180,9 +191,8 @@ src=https://www.pngkey.com/png/full/203-2038379_casino-slot-machine-casino-slot-
 
 =|=
 
-
-
 (set: $s1 to 0)
+(set: $c2 to 0)
 |spin&gt;[##spin it!]
 (click-replace:?spin)[(display: &quot;spin1&quot;)]
 |==|
@@ -243,21 +253,28 @@ I want to [[try it out &gt;- try game 2]]
 
 (set: $x to $x/10* 7.5 + $x)
 
-(text-colour:#ffe066)[After played the game for Your current balance is (print: $x/1000000) million]</tw-passagedata><tw-passagedata pid="13" name="dice1" tags="" position="900,50" size="100,100">
-
+(text-colour:#ffe066)[After played the game for Your current balance is (print: $x/1000000) million]</tw-passagedata><tw-passagedata pid="13" name="dice1" tags="" position="900,50" size="100,100">(set: $c1 to $c1 + 1)
 (if: (random:1,6) &gt; 2)[Congratulations! You earned $10! 
-    (set: $r1 to $r1+10) 
-    ###Total earning is : (print:$r1)]
+    (set: $r1 to $r1+10) ]
 (else:)[Opps, you lose $10. 
     (set: $r1 to $r1-10) 
-    ###Total earning is : (print:$r1)] 
-(click-replace:?roll)[(display:&quot;dice1&quot;)]</tw-passagedata><tw-passagedata pid="14" name="spin1" tags="" position="900,400" size="100,100">(if: (random:1,10) &gt; 9)[Congratulations! You earned $100! 
-    (set: $s1 to $s1+100) 
-    ###Total earning is : (print:$s1)]
+    ] 
+Total profit is : (print:$r1)
+Average profit is (print: (floor: $r1/$c1 *100)/100)
+(click-replace:?roll)[(display:&quot;dice1&quot;)]</tw-passagedata><tw-passagedata pid="14" name="spin1" tags="" position="900,400" size="100,100">(set: $c2 to $c2+1)
+(if: (random:1,10) &gt; 9)[Congratulations! You earned $100! 
+    (set: $s1 to $s1+100) ]
 (else:)[Opps, you lose $10. 
-    (set: $s1 to $s1 - 10) 
-    ###Total earning is : (print:$s1)] 
-(click-replace:?spin)[(display:&quot;spin1&quot;)]</tw-passagedata></tw-storydata>
+    (set: $s1 to $s1 - 10) ] 
+Total earning is : (print:$s1)
+
+Average earning is (print: (floor: $s1/$c2 * 100 )/100)
+(click-replace:?spin)[(display:&quot;spin1&quot;)]</tw-passagedata><tw-passagedata pid="15" name=" explain game 1" tags="" position="500,0" size="100,100">(text-colour:#d0bfff)[
+Behind the scene calculations for game 1: 
+* Your average profit is (2/6)(-10) + (4/6)(10) = $3.33, which would be similar to the average profit in &quot;try it out&quot; room if you play many times.
+* This number is also called the &quot;expected profit&quot; for a single game.
+* As you played 0.1 million times, your average profit would be very close (if not exact) to this number. So you total winning is: $3.33 * 1,000,000/10 = $333,333
+]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,a=!1,i=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){a=!0,i=e}finally{try{!r&&s.return&&s.return()}finally{if(a)throw i}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
