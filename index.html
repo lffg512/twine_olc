@@ -9,33 +9,38 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Money-spinner.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Money-spinner" startnode="1" creator="Twine" creator-version="2.3.15" ifid="C4208F21-18DE-4DCB-8507-E4F91F79A705" zoom="1" format="Harlowe" format-version="3.2.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-story{
+<tw-storydata name="Money-spinner" startnode="1" creator="Twine" creator-version="2.3.15" ifid="C4208F21-18DE-4DCB-8507-E4F91F79A705" zoom="1" format="Harlowe" format-version="3.2.3" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+tw-link {
+color:lime;
+}
+
+
+
+tw-story{
 background-image: url("https://covid19.sonoma.edu/sites/covid19/files/styles/banner_image/public/covid19-banner3-lester_032516_0183-4800x3195.png?itok=tkZmKwdM");
 background-size:cover;
 }
 
-tw-link {
-color:orange;
+tw-story[tags~="try"]{
+background-image: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/job546-kul-01_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=ea0d45aa08ffdf0a8592017e8d4e2d4c");
+background-size:cover;
 }
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Let&#39;s play" tags="" position="100,200" size="100,100">&lt;center&gt;
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Let&#39;s play" tags="" position="100,200" size="100,100">&lt;center&gt; &lt;h2&gt; Money-Spinner &lt;/h2&gt;
 
-&lt;h1&gt; MoneySpinner &lt;/h1&gt;
-
-There are (text-colour:red)[1 million] dollar in your suite case. 
+There are (text-colour:#ffd43b)[1 million] dollars in your suite case. 
 
 Do you want to double it? 
 
 Let&#39;s go to the &lt;span class=&#39;red&#39;&gt; [[play room]] &lt;/span&gt; and start earning! 
 
-&lt;/center&gt;
 &lt;style&gt; img {
     max-height: 100%;
     max-width: 100%;
 }
-
 &lt;/style&gt;
 &lt;img
-src=https://www.pngkey.com/png/full/203-2038379_casino-slot-machine-casino-slot-machine-png.png&gt;
+src=https://www.pogo.com/static/media/src/assets/categories/casino/spotlight__35-oR.jpg&gt;
 &lt;/div&gt;
 
 &lt;/center&gt;</tw-passagedata><tw-passagedata pid="2" name="play room" tags="" position="300,200" size="100,100">Okay, the rules are simple. 
@@ -106,7 +111,7 @@ Roll a fair dice. Your earning is the numberon top times 5.
 
 (set: $x to $x/10 * 1.9 + $x)
 
-After played the game for Your current balance is (print: $x/1000000) million</tw-passagedata><tw-passagedata pid="6" name=" challenging game 1" tags="" position="1100,25" size="100,100">You&#39;ve started with $ (print: $x/1000000) million to play this game. 
+(text-colour:#e599f7)[Your final balance is (print: $x/1000000) million]</tw-passagedata><tw-passagedata pid="6" name=" challenging game 1" tags="" position="1100,25" size="100,100">You&#39;ve started with $ (print: $x/1000000) million to play this game. 
 
 There are 38 numbers on an American Roulette. A ball has equal probability of landing on each of the slots. 2 of them are green, 18 are red and 18 are black. 
 
@@ -117,7 +122,7 @@ One last rule, you can only bet on black or red. Never on green.
 
 (set: $x to 0)
 
-After played the game using all your money, your current balance is (print: $x/1000000) million</tw-passagedata><tw-passagedata pid="7" name=" game 1" tags="" position="625,50" size="100,100">Congratuations! 
+(text-colour:#91a7ff)[After played the game using all your money, your current balance is (print: $x/1000000) million]</tw-passagedata><tw-passagedata pid="7" name=" game 1" tags="" position="625,50" size="100,100">Congratuations! 
 
 (set: $e to $x /3 )
 You won an extra of $ (print: $e) after using all your money to play. 
@@ -137,23 +142,29 @@ Now let&#39;s go to the [[next room]]
 Your current balance is $ (print: $x/1000000) Million
 
  
-You can go to the [[next room]] or go back to [[play room]] and choose again. </tw-passagedata><tw-passagedata pid="9" name="try it out &gt;- try game 1" tags="" position="775,50" size="100,100">(text-colour:lime)[To do: 
+You can go to the [[next room]] or go back to [[play room]] and choose again. </tw-passagedata><tw-passagedata pid="9" name="try it out &gt;- try game 1" tags="try" position="775,50" size="100,100">=|=
+&lt;style&gt; img {
+    max-height: 60%;
+    max-width: 60%;
+}
 
-generate random numbers
-
-show results and average earning ]</tw-passagedata><tw-passagedata pid="10" name="try it out &gt;- try game 2" tags="" position="775,400" size="100,100">(text-colour:lime)[To do: 
-
-generate random numbers
-
-show results and average earning ]
-
-I&#39;ll [[choose this one -&gt; game 1]]! 
-
-[[Go back to play room -&gt; Ready]]</tw-passagedata><tw-passagedata pid="11" name=" Ready" tags="" position="500,200" size="100,100">&lt;h2&gt;Room 1&lt;/h2&gt;
-
+&lt;/style&gt;
+&lt;img
+src=https://image1.masterfile.com/getImage/NjE0LTA2MzM2MDI2ZW4uMDAwMDAwMDA=ANj2KY/614-06336026en_Masterfile.jpg  &gt;
+&lt;/div&gt;
+* You roll a dice and see what number you get. 
+* If it&#39;s at least 3, you win $20. Net profit = $10
+* If it&#39;s less than 3, you get nothing. Net profit = - $10
 =|=
-Simple Dice Game
 
+
+
+(set: $r to 0)
+|roll&gt;[##Roll it!]
+(click-replace:?roll)[(display: &quot;dice1&quot;)]
+
+(text-colour:#c0eb75)[To do: Calculate average earning]
+|==|</tw-passagedata><tw-passagedata pid="10" name="try it out &gt;- try game 2" tags="try" position="775,400" size="100,100">=|=
 &lt;style&gt; img {
     max-height: 100%;
     max-width: 100%;
@@ -161,10 +172,34 @@ Simple Dice Game
 
 &lt;/style&gt;
 &lt;img
-src=data:image/jpeg;base64,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  &gt;
+src=https://www.pngkey.com/png/full/203-2038379_casino-slot-machine-casino-slot-machine-png.png&gt;
 &lt;/div&gt;
+* You pay 10$
+* This slot machine has a 90% chance to give you nothing back. Net profit = -$10
+* It has a 10% chance to give you $110 back. Net profit =$100
+
+=|=
 
 
+
+(set: $s1 to 0)
+|spin&gt;[##spin it!]
+(click-replace:?spin)[(display: &quot;spin1&quot;)]
+|==|
+</tw-passagedata><tw-passagedata pid="11" name=" Ready" tags="" position="500,200" size="100,100">&lt;h2&gt;Room 1&lt;/h2&gt;
+
+=|=
+Simple Dice Game
+
+&lt;style&gt; img {
+    max-height: 80%;
+    max-width: 80%;
+}
+
+&lt;/style&gt;
+&lt;img
+src=https://image1.masterfile.com/getImage/NjE0LTA2MzM2MDI2ZW4uMDAwMDAwMDA=ANj2KY/614-06336026en_Masterfile.jpg  &gt;
+&lt;/div&gt;
 * First pay $10 to play
 * You roll a dice and see what number you get. 
 * If it&#39;s at least 3, you win $20. Net profit = $10
@@ -184,6 +219,8 @@ Simple Slot Machine
 &lt;img
 src=https://www.pngkey.com/png/full/203-2038379_casino-slot-machine-casino-slot-machine-png.png&gt;
 &lt;/div&gt;
+
+
 * You pay 10$
 * This slot machine has a 90% chance to give you nothing back. Net profit = -$10
 * It has a 10% chance to give you $110 back. Net profit =$100
@@ -194,9 +231,7 @@ I want to [[try it out &gt;- try game 2]]
 |==|
 
 
-
-(text-colour:lime)[To do:
-give a have a go button, that let the user play and show earnings. ]</tw-passagedata><tw-passagedata pid="12" name=" challenging game 3" tags="" position="1100,325" size="100,100">You&#39;ve started with $ (print: $x) to play this game. 
+</tw-passagedata><tw-passagedata pid="12" name=" challenging game 3" tags="" position="1100,325" size="100,100">You&#39;ve started with $ (print: $x) to play this game. 
 
 * If you roll a 1, you will get $5 back. Net profit = - $5. 
 * If you roll a 2, you will get $10 back. Net profit = 0.
@@ -208,7 +243,21 @@ give a have a go button, that let the user play and show earnings. ]</tw-passage
 
 (set: $x to $x/10* 7.5 + $x)
 
-After played the game for Your current balance is (print: $x/1000000) million</tw-passagedata></tw-storydata>
+(text-colour:#ffe066)[After played the game for Your current balance is (print: $x/1000000) million]</tw-passagedata><tw-passagedata pid="13" name="dice1" tags="" position="900,50" size="100,100">
+
+(if: (random:1,6) &gt; 2)[Congratulations! You earned $10! 
+    (set: $r1 to $r1+10) 
+    ###Total earning is : (print:$r1)]
+(else:)[Opps, you lose $10. 
+    (set: $r1 to $r1-10) 
+    ###Total earning is : (print:$r1)] 
+(click-replace:?roll)[(display:&quot;dice1&quot;)]</tw-passagedata><tw-passagedata pid="14" name="spin1" tags="" position="900,400" size="100,100">(if: (random:1,10) &gt; 9)[Congratulations! You earned $100! 
+    (set: $s1 to $s1+100) 
+    ###Total earning is : (print:$s1)]
+(else:)[Opps, you lose $10. 
+    (set: $s1 to $s1 - 10) 
+    ###Total earning is : (print:$s1)] 
+(click-replace:?spin)[(display:&quot;spin1&quot;)]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">"use strict";var _slicedToArray=function(){return function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function(e,t){var n=[],r=!0,a=!1,i=void 0;try{for(var o,s=e[Symbol.iterator]();!(r=(o=s.next()).done)&&(n.push(o.value),!t||n.length!==t);r=!0);}catch(e){a=!0,i=e}finally{try{!r&&s.return&&s.return()}finally{if(a)throw i}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}!function(){
 /**
  * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
